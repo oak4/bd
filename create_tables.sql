@@ -52,12 +52,19 @@ CREATE TABLE MEDIA
     URL      VARCHAR2(2000) NOT NULL
 );
 
+CREATE TABLE TAG
+(
+    TAG_ID NUMBER(5) PRIMARY KEY,
+    NUME   VARCHAR2(20) NOT NULL
+);
+
 CREATE TABLE TAG_MEDIA
 (
-    TAG_ID   NUMBER(5) PRIMARY KEY,
-    MEDIA_ID NUMBER(5)    NOT NULL,
-    NUME     VARCHAR2(20) NOT NULL
+    TAG_ID   NUMBER(5),
+    MEDIA_ID NUMBER(5),
+    constraint TM_PK primary key (TAG_ID, MEDIA_ID)
 );
+
 CREATE TABLE SURSE_ARTICOLE
 (
     SURSA_ID   NUMBER(5),
@@ -92,6 +99,9 @@ ALTER TABLE COMENTARII
 
 ALTER TABLE TAG_MEDIA
     ADD CONSTRAINT TM_MEDIA_FK FOREIGN KEY (MEDIA_ID) REFERENCES MEDIA (MEDIA_ID);
+
+ALTER TABLE TAG_MEDIA
+    ADD CONSTRAINT TM_TAG_FK FOREIGN KEY (TAG_ID) REFERENCES TAG (TAG_ID);
 
 ALTER TABLE ARTICOLE_MEDIA
     ADD CONSTRAINT AM_ART_FK FOREIGN KEY (ARTICOL_ID) REFERENCES ARTICOLE (ARTICOL_ID);
@@ -147,11 +157,17 @@ values (1, 'https://ceva.com/poza1.png');
 insert into media
 values (2, 'https://ceva.com/poza2.png');
 
-insert into TAG_MEDIA
-values (1, 1, 'Jeff Bezos');
+insert into TAG
+values (1, 'Jeff Bezos');
+
+insert into Tag
+values (2, 'pisica');
 
 insert into TAG_MEDIA
-values (2, 2, 'pisica');
+values (1, 1);
+
+insert into TAG_MEDIA
+values (2, 2);
 
 insert into ARTICOLE
 values (1, 1, 1, 1, 1, sysdate, 'Jeff a pierdut o suma de bani ',
@@ -190,7 +206,6 @@ from articole,
 where articole.AUTOR_ID = autori.AUTOR_ID
 order by autori.nume;
 
--- TODO: table many-many tag-media
 -- TODO: populare bd
 -- TODO: sql-uri mai complicate'
 -- TODO: rest-full architecture
