@@ -1,21 +1,66 @@
-INSERT INTO STATUSURI
-VALUES
-    (1, 'STANDARD', 1);
+insert into status
+values (1, 'activ');
 
-ALTER SESSION SET nls_date_format = 'yyyy-MM-dd';
+insert into STATUS
+values (2, 'inactiv');
 
-INSERT INTO AUTORI
-VALUES
-    (1, 'anonim', 1);
-INSERT INTO CATEGORII
-VALUES
-    (1, 'Stock Picks');
-INSERT INTO SURSE
-VALUES
-    (1, 'cnbc.com');
-INSERT INTO ARTICOLE
-VALUES
-    (1, 1, 1, 1, 1, '2018-03-02', 'Cramer Remix: The first stock people will drop in this sell-off',
-     'Cramer Remix: The first stock people will drop in this sell-off 11 Hours Ago',
-     'https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/03/01/105039205-5ED2-MM-Remix-030118.600x400.jpg');
-COMMIT;
+insert into autori
+values (1, 'Popescu', 1);
+
+insert into autori
+values (2, 'Ionescu', 2);
+
+insert into CATEGORII
+values (1, 'Economie', 1);
+
+insert into CATEGORII
+values (2, 'Alegeri 2019', 2);
+
+insert into SURSE
+values (1, 1, 'BBC', 'bbc.com');
+
+insert into SURSE
+values (2, 2, 'Fake news', 'fake.com');
+
+insert into SURSE
+values (3, 1, 'CNBC', 'cnbc.com');
+
+insert into media
+values (1, 'https://ceva.com/poza1.png');
+
+insert into media
+values (2, 'https://ceva.com/poza2.png');
+
+insert into TAG
+values (1, 'Jeff Bezos');
+
+insert into Tag
+values (2, 'pisica');
+
+insert into TAG_MEDIA
+values (1, 1);
+
+insert into TAG_MEDIA
+values (2, 2);
+
+insert into ARTICOLE
+values (1, 1, 1, 1, 1, sysdate, 'Jeff a pierdut o suma de bani ',
+        'Ceva continut despre cum Jeff a pierdut o suma mare de bani, dar ...');
+
+insert into ARTICOLE
+values (2, 2, 2, 2, 2, sysdate, 'Fake news: CLICK HERE!', 'Ceva despre pilule extraordinare');
+
+insert into ARTICOLE_MEDIA
+values (1, 1);
+
+insert into ARTICOLE_MEDIA
+values (2, 2);
+
+insert into SURSE_ARTICOLE
+values (1, 1);
+
+insert into SURSE_ARTICOLE
+values (2, 2);
+
+insert into COMENTARII
+values (1, 1, 1, 'Gigel', 'Saracul de el! :(');
