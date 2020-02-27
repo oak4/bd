@@ -1,3 +1,4 @@
+set define off;
 INSERT INTO STATUS VALUES(1,'ACTIV');
 INSERT INTO CATEGORII VALUES(2,'entertainment',1);
 INSERT INTO AUTORI VALUES(1,q'[Connie Liou]',1);
@@ -282,7 +283,8 @@ INSERT INTO ARTICOLE VALUES(56,5,52,1,44,sysdate,q'[Protoplanet Asteroid 4 Vesta
 INSERT INTO ARTICOLE_MEDIA VALUES(56,56);
 INSERT INTO MEDIA VALUES(57,q'[https://ichef.bbci.co.uk/news/1024/branded_news/120EC/production/_110446937_gettyimages-1196848531.jpg]');
 INSERT INTO ARTICOLE VALUES(57,5,18,1,15,sysdate,q'[Seagulls prefer food touched by humans, study suggests - BBC News]',q'[Image copyrightGetty ImagesImage caption
- Seagulls prefer human-handled food, a new study suggests]');
+ Seagulls prefer human-handled food, a new study suggests
+]');
 INSERT INTO ARTICOLE_MEDIA VALUES(57,57);
 INSERT INTO MEDIA VALUES(58,q'[https://www.heritagedaily.com/wp-content/uploads/2020/02/BI1-scaled.jpg]');
 INSERT INTO ARTICOLE VALUES(58,5,52,1,44,sysdate,q'[Researchers reconstruct migration movements through ancient DNA - HeritageDaily]',q'[The Mediterranean Sea has been a major route for maritime migrations as well as frequent trade and i]');
