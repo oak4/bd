@@ -1052,4 +1052,13 @@ VALUES (93, 1, 85, 1, 66, sysdate, q'[Why was South Tampa traffic such a mess? T
         q'[Editors note: This story has been updated with the latest street openings and closures from the city]');
 INSERT INTO ARTICOLE_MEDIA
 VALUES (93, 93);
+
+
+-- setam pentru data_publicare o data random
+-- https://www.techrepublic.com/article/use-dbms-random-to-generate-text-and-date-values/
+-- noinspection SqlWithoutWhere
+UPDATE ARTICOLE
+SET DATA_PUBLICARE = TO_DATE(TRUNC(DBMS_RANDOM.VALUE(TO_CHAR(TO_DATE('01/01/20', 'mm/dd/yy'), 'J'),
+                                                     TO_CHAR(TO_DATE('01/01/20', 'mm/dd/yy'), 'J') + 364)), 'J');
+
 COMMIT;
